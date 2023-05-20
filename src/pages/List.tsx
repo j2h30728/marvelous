@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function List() {
   const [list, setList] = useState<Array<Character>>([]);
-  const [img, setImg] = useState<Array<Character>>([]);
+  const [imgs, setImgs] = useState<Array<Character>>([]);
 
   useEffect(() => {
     (async () => {
@@ -15,16 +15,23 @@ export default function List() {
   }, []);
 
   useEffect(() => {
-    setImg(
+    setImgs(
       list.filter(char =>
         Boolean(!char.thumbnail.path.includes("image_not_available"))
       )
     );
   }, [list]);
 
-  console.log(img);
   return (
     <>
+      <h1>MARVEL</h1>
+      {imgs.map(img => (
+        <img
+          key={img.thumbnail.path}
+          width={100}
+          src={`${img.thumbnail.path}.${img.thumbnail.extension}`}
+        />
+      ))}
       {list.map(char => (
         <Link to={`/character/${char.id}`} key={char.id} state={char}>
           <span>{char.name}</span>
