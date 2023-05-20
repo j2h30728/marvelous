@@ -1,10 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 
 function App() {
+  const { pathname } = useLocation();
+  const isGoBack = pathname !== "/";
   return (
     <>
-      <Header />
+      <Header goBack={isGoBack} />
       <Outlet />
     </>
   );

@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const Header = () => {
+const Header = ({ goBack }: { goBack: boolean }) => {
+  const nav = useNavigate();
+
   return (
     <TitleWrapper>
+      {goBack && <BackBtn onClick={() => nav(-1)}>&lt;</BackBtn>}
       <Title to="/">MARVEL</Title>
     </TitleWrapper>
   );
@@ -28,4 +31,11 @@ export const Title = styled(Link)`
   transform: scaleY(1.8);
   text-decoration: none;
   font-weight: 900;
+`;
+
+const BackBtn = styled.div`
+  color: white;
+  font-size: 40px;
+  position: relative;
+  left: 30px;
 `;

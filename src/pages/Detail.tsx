@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Character, get } from "../api/api";
 import ApiUrl from "../api/ApiUrl";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import DetailItems from "../components/DetailItems";
+
+import * as S from "./style";
 import styled from "styled-components";
 
 export default function Detail() {
@@ -18,9 +20,8 @@ export default function Detail() {
   }, [id]);
 
   return (
-    <Container>
-      <Link to="/">뒤로가기</Link>
-      <h1>{detail?.name || state.name}</h1>
+    <S.Container>
+      <DetailTitle>{detail?.name || state.name}</DetailTitle>
       <img
         src={
           detail
@@ -58,13 +59,8 @@ export default function Detail() {
           />
         </>
       )}
-    </Container>
+    </S.Container>
   );
 }
 
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-`;
+const DetailTitle = styled.h2``;
