@@ -3,12 +3,12 @@ import { Character, get } from "../api/api";
 import ApiUrl from "../api/ApiUrl";
 import { Link, useLocation, useParams } from "react-router-dom";
 import DetailItems from "../components/DetailItems";
+import styled from "styled-components";
 
 export default function Detail() {
   const { id } = useParams();
   const [detail, setDetail] = useState<Character>();
   const { state } = useLocation() as { state: Character };
-  console.log(state);
 
   useEffect(() => {
     (async () => {
@@ -18,8 +18,8 @@ export default function Detail() {
   }, [id]);
 
   return (
-    <>
-      <Link to="/">HOME</Link>
+    <Container>
+      <Link to="/">뒤로가기</Link>
       <h1>{detail?.name || state.name}</h1>
       <img
         src={
@@ -58,6 +58,13 @@ export default function Detail() {
           />
         </>
       )}
-    </>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
