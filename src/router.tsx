@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Detail from "./pages/Detail";
-import List from "./pages/List";
+import Main from "./pages/Main";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <List />,
+        element: <Main />,
       },
       {
         path: "character/:id",

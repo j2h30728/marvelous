@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { Character, get } from "../api/api";
 import ApiUrl from "../api/ApiUrl";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import * as S from "./style";
 
-export default function List() {
+export default function Main() {
   const [list, setList] = useState<Array<Character>>([]);
   const [imgs, setImgs] = useState<Array<Character>>([]);
 
