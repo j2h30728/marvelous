@@ -18,7 +18,7 @@ export default function Detail() {
       respnse && setDetail(respnse[0]);
     })();
   }, [id]);
-  console.log(detail);
+
   return (
     <S.Container>
       <S.DetailTitle>{detail?.name || state.name}</S.DetailTitle>

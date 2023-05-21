@@ -12,6 +12,7 @@ export const CharacterWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
+  margin-top: 30px;
 `;
 export const Charater = styled(Link)<{ bgphoto: string }>`
   display: flex;
@@ -71,6 +72,7 @@ export const Loader = styled.span`
 `;
 
 export const DeatilItem = styled.div`
+  display: flex;
   padding: 3.5px 30px;
   font-size: 18px;
   font-weight: 600;
