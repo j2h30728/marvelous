@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import * as S from "./style";
 
 const DetailItems = ({
   title,
@@ -8,12 +8,10 @@ const DetailItems = ({
   items: React.ReactNode;
 }) => {
   return (
-    <div>
-      <ItemTitle>{title}</ItemTitle>
+    <S.DetailWrapper>
+      <S.ItemTitle>{title}</S.ItemTitle>
       {items}
-    </div>
+    </S.DetailWrapper>
   );
 };
 export default DetailItems;
-
-const ItemTitle = styled.h3``;

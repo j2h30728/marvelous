@@ -5,7 +5,6 @@ import { useLocation, useParams } from "react-router-dom";
 import DetailItems from "../components/DetailItems";
 
 import * as S from "./style";
-import styled from "styled-components";
 
 export default function Detail() {
   const { id } = useParams();
@@ -21,46 +20,48 @@ export default function Detail() {
 
   return (
     <S.Container>
-      <DetailTitle>{detail?.name || state.name}</DetailTitle>
-      <img
-        src={
-          detail
-            ? `${detail?.thumbnail.path}.${detail?.thumbnail.extension}`
-            : `${state.thumbnail.path}.${state.thumbnail.extension}`
-        }
-      />
-      {!detail ? (
-        "Loading..."
-      ) : (
-        <>
-          <DetailItems
-            title="series"
-            items={detail?.series.items.map((item, idx) => (
-              <a key={item.resourceURI + idx} href={item.resourceURI}>
-                {item.name}
-              </a>
-            ))}
-          />
-          <DetailItems
-            title="stories"
-            items={detail?.stories.items.map((item, idx) => (
-              <a key={item.resourceURI + idx} href={item.resourceURI}>
-                {item.name}
-              </a>
-            ))}
-          />
-          <DetailItems
-            title="urls"
-            items={detail?.urls.map((url, idx) => (
-              <a key={url.url + idx} href={url.url}>
-                {url.type}
-              </a>
-            ))}
-          />
-        </>
-      )}
+      <S.DetailTitle>{detail?.name || state.name}</S.DetailTitle>
+      <S.DetailContainer>
+        <img
+          src={
+            detail
+              ? `${detail?.thumbnail.path}.${detail?.thumbnail.extension}`
+              : `${state.thumbnail.path}.${state.thumbnail.extension}`
+          }
+        />
+        <S.DetailContents>
+          {!detail ? (
+            <S.Loader>Loading...</S.Loader>
+          ) : (
+            <>
+              <DetailItems
+                title="series"
+                items={detail?.series.items.map((item, idx) => (
+                  <S.DeatilItem key={item.resourceURI + idx}>
+                    {item.name}
+                  </S.DeatilItem>
+                ))}
+              />
+              <DetailItems
+                title="stories"
+                items={detail?.stories.items.map((item, idx) => (
+                  <S.DeatilItem key={item.resourceURI + idx}>
+                    {item.name}
+                  </S.DeatilItem>
+                ))}
+              />
+              <DetailItems
+                title="urls"
+                items={detail?.urls.map((url, idx) => (
+                  <S.UrlItem key={url.url + idx} href={url.url}>
+                    {`${url.type} 으로 이동하기`}
+                  </S.UrlItem>
+                ))}
+              />
+            </>
+          )}
+        </S.DetailContents>
+      </S.DetailContainer>
     </S.Container>
   );
 }
-
-const DetailTitle = styled.h2``;

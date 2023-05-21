@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 740px;
-  height: 100vh; // 스크롤 가능한 높이 설정
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -32,4 +31,50 @@ export const CharaterName = styled.span`
   color: white;
   margin: 15px;
   text-shadow: 2px 2px 8px red;
+`;
+
+export const DetailTitle = styled.h2`
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  background-color: #333;
+  border-top: 1px solid white;
+  color: white;
+  margin: 0 0 30px;
+  padding: 8px 0;
+`;
+export const DetailContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  img {
+    margin: 0 auto;
+    width: 350px;
+    border-radius: 10px;
+  }
+`;
+export const DetailContents = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+export const Loader = styled.span`
+  font-size: 40px;
+  text-align: center;
+  font-weight: 900;
+`;
+
+export const DeatilItem = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+`;
+
+export const UrlItem = styled.a`
+  display: flex;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
 `;
