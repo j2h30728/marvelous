@@ -17,17 +17,23 @@ export default function Main() {
 
   return (
     <S.Container>
-      <S.CharacterWrapper>
-        {list.map(char => (
-          <S.Charater
-            to={`/character/${char.id}`}
-            key={char.id}
-            state={char}
-            bgphoto={makeImg(char.thumbnail.path, char.thumbnail.extension)}>
-            <S.CharaterName>{char.name}</S.CharaterName>
-          </S.Charater>
-        ))}
-      </S.CharacterWrapper>
+      {list.length === 0 ? (
+        <S.LoaderWrapper>
+          <S.Loader>Loading...</S.Loader>
+        </S.LoaderWrapper>
+      ) : (
+        <S.CharacterWrapper>
+          {list.map(char => (
+            <S.Charater
+              to={`/character/${char.id}`}
+              key={char.id}
+              state={char}
+              bgphoto={makeImg(char.thumbnail.path, char.thumbnail.extension)}>
+              <S.CharaterName>{char.name}</S.CharaterName>
+            </S.Charater>
+          ))}
+        </S.CharacterWrapper>
+      )}
     </S.Container>
   );
 }

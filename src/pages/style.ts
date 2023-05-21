@@ -64,8 +64,15 @@ export const DetailContents = styled.div`
   flex-direction: column;
   gap: 5px;
 `;
+export const LoaderWrapper = styled.div`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const Loader = styled.span`
+  margin: 20px;
   font-size: 40px;
   text-align: center;
   font-weight: 900;
