@@ -1,23 +1,15 @@
-import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import DetailItems from "../components/DetailItems";
 import makeImg from "../utils/makeImg";
 import { Character } from "../types/types";
-import { ApiUrl, get } from "../api";
+import { useGetDetail } from "../hooks/useQuery";
 
 import * as S from "./style";
 
 export default function Detail() {
   const { id } = useParams();
-  const [detail, setDetail] = useState<Character>();
   const { state } = useLocation() as { state: Character };
-
-  useEffect(() => {
-    (async () => {
-      const respnse = await get(`${ApiUrl.baseUrl}/${id}`);
-      respnse && setDetail(respnse[0]);
-    })();
-  }, [id]);
+  const { isLoading, detail } = useGetDetail(id);
 
   return (
     <S.Container>
@@ -31,7 +23,7 @@ export default function Detail() {
                 : makeImg(state.thumbnail.path, state.thumbnail.extension)
             }
           />
-          {detail && (
+          {!isLoading && (
             <DetailItems
               title="urls"
               items={detail?.urls.map((url, idx) => (
@@ -43,12 +35,12 @@ export default function Detail() {
           )}
         </S.ImgWrapper>
         <S.DetailContents>
-          {!detail ? (
+          {isLoading ? (
             <S.Loader>Loading...</S.Loader>
           ) : (
             <>
               <DetailItems
-                title={`series (${detail.series.available})`}
+                title={`series (${detail?.series.available})`}
                 items={detail?.series.items.map((item, idx) => (
                   <S.DeatilItem key={item.resourceURI + idx}>
                     {item.name}
@@ -56,7 +48,7 @@ export default function Detail() {
                 ))}
               />
               <DetailItems
-                title={`stories (${detail.stories.available})`}
+                title={`stories (${detail?.stories.available})`}
                 items={detail?.stories.items.map((item, idx) => (
                   <S.DeatilItem key={item.resourceURI + idx}>
                     {item.name}

@@ -1,23 +1,14 @@
-import { useEffect, useState } from "react";
-import { ApiUrl, get } from "../api";
 import makeImg from "../utils/makeImg";
-import { Character } from "../types/types";
 
 import * as S from "./style";
+import { useGetList } from "../hooks/useQuery";
 
 export default function Main() {
-  const [list, setList] = useState<Array<Character>>([]);
-
-  useEffect(() => {
-    (async () => {
-      const result: Array<Character> | undefined = await get(ApiUrl.list);
-      result && setList(result);
-    })();
-  }, []);
+  const { isLoading, list } = useGetList();
 
   return (
     <S.Container>
-      {list.length === 0 ? (
+      {isLoading ? (
         <S.LoaderWrapper>
           <S.Loader>Loading...</S.Loader>
         </S.LoaderWrapper>
