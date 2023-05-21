@@ -32,7 +32,7 @@ export const BackBtn = styled.div`
 `;
 
 export const DetailWrapper = styled.div`
-  margin-bottom: 30px;
+  margin: 30px 0;
 `;
 
 export const ItemTitle = styled.h3`

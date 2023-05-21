@@ -13,9 +13,11 @@ export interface Character {
     path: string;
   };
   series: {
+    available: number;
     items: Array<itmes>;
   };
   stories: {
+    available: number;
     items: Array<itmes>;
   };
   urls: url[];

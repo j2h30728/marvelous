@@ -18,25 +18,37 @@ export default function Detail() {
       respnse && setDetail(respnse[0]);
     })();
   }, [id]);
-
+  console.log(detail);
   return (
     <S.Container>
       <S.DetailTitle>{detail?.name || state.name}</S.DetailTitle>
       <S.DetailContainer>
-        <img
-          src={
-            detail
-              ? makeImg(detail?.thumbnail.path, detail?.thumbnail.extension)
-              : makeImg(state.thumbnail.path, state.thumbnail.extension)
-          }
-        />
+        <S.ImgWrapper>
+          <img
+            src={
+              detail
+                ? makeImg(detail?.thumbnail.path, detail?.thumbnail.extension)
+                : makeImg(state.thumbnail.path, state.thumbnail.extension)
+            }
+          />
+          {detail && (
+            <DetailItems
+              title="urls"
+              items={detail?.urls.map((url, idx) => (
+                <S.UrlItem key={url.url + idx} href={url.url}>
+                  {`${url.type} 으로 이동하기`}
+                </S.UrlItem>
+              ))}
+            />
+          )}
+        </S.ImgWrapper>
         <S.DetailContents>
           {!detail ? (
             <S.Loader>Loading...</S.Loader>
           ) : (
             <>
               <DetailItems
-                title="series"
+                title={`series (${detail.series.available})`}
                 items={detail?.series.items.map((item, idx) => (
                   <S.DeatilItem key={item.resourceURI + idx}>
                     {item.name}
@@ -44,19 +56,11 @@ export default function Detail() {
                 ))}
               />
               <DetailItems
-                title="stories"
+                title={`stories (${detail.stories.available})`}
                 items={detail?.stories.items.map((item, idx) => (
                   <S.DeatilItem key={item.resourceURI + idx}>
                     {item.name}
                   </S.DeatilItem>
-                ))}
-              />
-              <DetailItems
-                title="urls"
-                items={detail?.urls.map((url, idx) => (
-                  <S.UrlItem key={url.url + idx} href={url.url}>
-                    {`${url.type} 으로 이동하기`}
-                  </S.UrlItem>
                 ))}
               />
             </>

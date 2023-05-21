@@ -44,14 +44,19 @@ export const DetailTitle = styled.h2`
   padding: 8px 0;
 `;
 export const DetailContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
 
   img {
     margin: 0 auto;
     width: 350px;
     border-radius: 10px;
   }
+`;
+
+export const ImgWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `;
 export const DetailContents = styled.div`
   display: flex;
@@ -66,15 +71,24 @@ export const Loader = styled.span`
 `;
 
 export const DeatilItem = styled.div`
+  padding: 3.5px 30px;
   font-size: 18px;
   font-weight: 600;
+
+  :first-of-type {
+    margin-top: 20px;
+  }
 `;
 
 export const UrlItem = styled.a`
   display: flex;
   margin: 10px;
+  padding: 3.5px 30px;
   text-decoration: none;
   font-size: 18px;
   font-weight: 600;
   color: black;
+  :first-of-type {
+    margin-top: 20px;
+  }
 `;
