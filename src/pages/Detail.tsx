@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Character, get } from "../api/api";
-import ApiUrl from "../api/ApiUrl";
 import { useLocation, useParams } from "react-router-dom";
 import DetailItems from "../components/DetailItems";
 import makeImg from "../utils/makeImg";
+import { Character } from "../types/types";
+import { ApiUrl, get } from "../api";
 
 import * as S from "./style";
 

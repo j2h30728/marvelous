@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Character, get } from "../api/api";
-import ApiUrl from "../api/ApiUrl";
+import { ApiUrl, get } from "../api";
 import makeImg from "../utils/makeImg";
+import { Character } from "../types/types";
 
 import * as S from "./style";
 
