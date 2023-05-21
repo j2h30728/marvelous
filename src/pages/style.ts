@@ -65,7 +65,7 @@ export const DetailContents = styled.div`
   gap: 5px;
 `;
 export const LoaderWrapper = styled.div`
-  height: 100vh;
+  margin-top: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
