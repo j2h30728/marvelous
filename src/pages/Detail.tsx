@@ -3,6 +3,7 @@ import { Character, get } from "../api/api";
 import ApiUrl from "../api/ApiUrl";
 import { useLocation, useParams } from "react-router-dom";
 import DetailItems from "../components/DetailItems";
+import makeImg from "../utils/makeImg";
 
 import * as S from "./style";
 
@@ -25,8 +26,8 @@ export default function Detail() {
         <img
           src={
             detail
-              ? `${detail?.thumbnail.path}.${detail?.thumbnail.extension}`
-              : `${state.thumbnail.path}.${state.thumbnail.extension}`
+              ? makeImg(detail?.thumbnail.path, detail?.thumbnail.extension)
+              : makeImg(state.thumbnail.path, state.thumbnail.extension)
           }
         />
         <S.DetailContents>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Character, get } from "../api/api";
 import ApiUrl from "../api/ApiUrl";
 import styled from "styled-components";
+import makeImg from "../utils/makeImg";
 
 import * as S from "./style";
 
@@ -30,7 +31,7 @@ export default function Main() {
           <img
             key={img.thumbnail.path}
             width={100}
-            src={`${img.thumbnail.path}.${img.thumbnail.extension}`}
+            src={makeImg(img.thumbnail.path, img.thumbnail.extension)}
           />
         ))}
       </ImageWrapper>
@@ -40,7 +41,7 @@ export default function Main() {
             to={`/character/${char.id}`}
             key={char.id}
             state={char}
-            bgphoto={`${char.thumbnail.path}.${char.thumbnail.extension}`}>
+            bgphoto={makeImg(char.thumbnail.path, char.thumbnail.extension)}>
             <S.CharaterName>{char.name}</S.CharaterName>
           </S.Charater>
         ))}
