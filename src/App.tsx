@@ -8,7 +8,7 @@ function App() {
 
   return (
     <S.Container>
-      <Header goBack={isGoBack} />
+      <Header isGoBack={isGoBack} />
       <Outlet />
     </S.Container>
   );

@@ -4,7 +4,7 @@ const DetailItems = ({
   title,
   items,
 }: {
-  title: string;
+  title: React.ReactNode;
   items: React.ReactNode;
 }) => {
   return (

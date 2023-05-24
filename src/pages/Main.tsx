@@ -1,7 +1,7 @@
-import makeImg from "../utils/makeImg";
+import useGetList from "../hooks/useGetList";
+import makeImagePathname from "../utils/makeImagePathname";
 
 import * as S from "./style";
-import { useGetList } from "../hooks/useQuery";
 
 export default function Main() {
   const { isLoading, list } = useGetList();
@@ -19,7 +19,10 @@ export default function Main() {
               to={`/character/${char.id}`}
               key={char.id}
               state={char}
-              bgphoto={makeImg(char.thumbnail.path, char.thumbnail.extension)}>
+              bgphoto={makeImagePathname(
+                char.thumbnail.path,
+                char.thumbnail.extension
+              )}>
               <S.CharaterName>{char.name}</S.CharaterName>
             </S.Charater>
           ))}

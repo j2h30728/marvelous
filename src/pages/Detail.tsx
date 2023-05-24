@@ -1,15 +1,14 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import DetailItems from "../components/DetailItems";
-import makeImg from "../utils/makeImg";
+import makeImagePathname from "../utils/makeImagePathname";
 import { Character } from "../types/types";
-import { useGetDetail } from "../hooks/useQuery";
 
 import * as S from "./style";
+import useGetDetail from "../hooks/useGetDetail";
 
 export default function Detail() {
-  const { id } = useParams();
   const { state } = useLocation() as { state: Character };
-  const { isLoading, detail } = useGetDetail(id);
+  const { isLoading, detail } = useGetDetail();
 
   return (
     <S.Container>
@@ -19,8 +18,14 @@ export default function Detail() {
           <img
             src={
               detail
-                ? makeImg(detail?.thumbnail.path, detail?.thumbnail.extension)
-                : makeImg(state.thumbnail.path, state.thumbnail.extension)
+                ? makeImagePathname(
+                    detail?.thumbnail.path,
+                    detail?.thumbnail.extension
+                  )
+                : makeImagePathname(
+                    state.thumbnail.path,
+                    state.thumbnail.extension
+                  )
             }
           />
           {!isLoading && (
