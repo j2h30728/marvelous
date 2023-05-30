@@ -3,23 +3,33 @@ import { Character } from "../../types/types";
 import { Link } from "react-router-dom";
 import makeImagePathname from "../../utils/makeImagePathname";
 
-interface CharaterItemProps {
+interface CharaterImgProps {
   char: Character;
 }
 
-const CharaterItem = ({ char }: CharaterItemProps) => (
-  <Charater
+const CharaterImg = ({ char }: CharaterImgProps) => {
+  return (
+    <Charater
+      bgphoto={makeImagePathname(
+        char.thumbnail.path,
+        char.thumbnail.extension
+      )}></Charater>
+  );
+};
+
+CharaterImg.MainItem = ({ char }: CharaterImgProps) => (
+  <MainCharater
+    as={Link}
     to={`/character/${char.id}`}
-    key={char.id}
     state={char}
     bgphoto={makeImagePathname(char.thumbnail.path, char.thumbnail.extension)}>
     <CharaterName>{char.name}</CharaterName>
-  </Charater>
+  </MainCharater>
 );
 
-export default CharaterItem;
+export default CharaterImg;
 
-const Charater = styled(Link)<{ bgphoto: string }>`
+const Charater = styled.div<{ bgphoto: string }>`
   display: flex;
   justify-content: start;
   text-decoration: none;
@@ -27,10 +37,14 @@ const Charater = styled(Link)<{ bgphoto: string }>`
   height: 300px;
   overflow: hidden;
   border-radius: 10px;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent),
-    url(${props => props.bgphoto});
+  background-image: url(${props => props.bgphoto});
   background-size: cover;
   background-position: left center;
+`;
+
+const MainCharater = styled(Charater)<{ bgphoto: string }>`
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent),
+    url(${props => props.bgphoto});
 `;
 
 const CharaterName = styled.span`

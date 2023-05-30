@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
-import DetailItems from "../components/DetailItems";
-import makeImagePathname from "../utils/makeImagePathname";
+import DetailItems from "../components/common/DetailItems";
 import { Character } from "../types/types";
 import useGetDetail from "../hooks/useGetDetail";
-import Loader from "../components/Loder";
 import styled from "styled-components";
+import CharaterImg from "../components/main/CharaterImg";
+import Loader from "../components/common/Loder";
 
 export default function Detail() {
   const { state } = useLocation() as { state: Character };
@@ -14,35 +14,21 @@ export default function Detail() {
     <Container>
       <DetailTitle>{detail?.name || state.name}</DetailTitle>
       <ImgWrapper>
-        <img
-          src={
-            detail
-              ? makeImagePathname(
-                  detail?.thumbnail.path,
-                  detail?.thumbnail.extension
-                )
-              : makeImagePathname(
-                  state.thumbnail.path,
-                  state.thumbnail.extension
-                )
-          }
-        />
-        {!isLoading && (
-          <DetailItems
-            title="urls"
-            items={detail?.urls.map((url, idx) => (
-              <UrlItem key={url.url + idx} href={url.url}>
-                {`${url.type} 으로 이동하기`}
-              </UrlItem>
-            ))}
-          />
-        )}
+        <CharaterImg char={state || detail} />
       </ImgWrapper>
       <DetailContents>
         {isLoading ? (
           <Loader.Detail>Loading...</Loader.Detail>
         ) : (
           <>
+            <DetailItems
+              title="urls"
+              items={detail?.urls.map((url, idx) => (
+                <UrlItem key={url.url + idx} href={url.url}>
+                  {`${url.type} 으로 이동하기`}
+                </UrlItem>
+              ))}
+            />
             <DetailItems
               title={`series (${detail?.series.available})`}
               items={detail?.series.items.map((item, idx) => (

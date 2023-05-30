@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Character } from "../../types/types";
-import CharaterItem from "./CharaterItem";
+import { Character } from "../types/types";
+import CharaterImg from "./main/CharaterImg";
 
 interface CharaterItemsProps {
   list: Array<Character>;
@@ -10,7 +10,7 @@ const CharaterItems = ({ list }: CharaterItemsProps) => {
   return (
     <CharacterWrapper>
       {list.map(char => (
-        <CharaterItem key={char.id} char={char} />
+        <CharaterImg.MainItem key={char.id} char={char} />
       ))}
     </CharacterWrapper>
   );
