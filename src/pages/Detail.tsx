@@ -13,57 +13,55 @@ export default function Detail() {
   return (
     <Container>
       <DetailTitle>{detail?.name || state.name}</DetailTitle>
-      <DetailContainer>
-        <ImgWrapper>
-          <img
-            src={
-              detail
-                ? makeImagePathname(
-                    detail?.thumbnail.path,
-                    detail?.thumbnail.extension
-                  )
-                : makeImagePathname(
-                    state.thumbnail.path,
-                    state.thumbnail.extension
-                  )
-            }
+      <ImgWrapper>
+        <img
+          src={
+            detail
+              ? makeImagePathname(
+                  detail?.thumbnail.path,
+                  detail?.thumbnail.extension
+                )
+              : makeImagePathname(
+                  state.thumbnail.path,
+                  state.thumbnail.extension
+                )
+          }
+        />
+        {!isLoading && (
+          <DetailItems
+            title="urls"
+            items={detail?.urls.map((url, idx) => (
+              <UrlItem key={url.url + idx} href={url.url}>
+                {`${url.type} 으로 이동하기`}
+              </UrlItem>
+            ))}
           />
-          {!isLoading && (
+        )}
+      </ImgWrapper>
+      <DetailContents>
+        {isLoading ? (
+          <Loader.Detail>Loading...</Loader.Detail>
+        ) : (
+          <>
             <DetailItems
-              title="urls"
-              items={detail?.urls.map((url, idx) => (
-                <UrlItem key={url.url + idx} href={url.url}>
-                  {`${url.type} 으로 이동하기`}
-                </UrlItem>
+              title={`series (${detail?.series.available})`}
+              items={detail?.series.items.map((item, idx) => (
+                <DeatilItem key={item.resourceURI + idx}>
+                  {item.name}
+                </DeatilItem>
               ))}
             />
-          )}
-        </ImgWrapper>
-        <DetailContents>
-          {isLoading ? (
-            <Loader.Detail>Loading...</Loader.Detail>
-          ) : (
-            <>
-              <DetailItems
-                title={`series (${detail?.series.available})`}
-                items={detail?.series.items.map((item, idx) => (
-                  <DeatilItem key={item.resourceURI + idx}>
-                    {item.name}
-                  </DeatilItem>
-                ))}
-              />
-              <DetailItems
-                title={`stories (${detail?.stories.available})`}
-                items={detail?.stories.items.map((item, idx) => (
-                  <DeatilItem key={item.resourceURI + idx}>
-                    {item.name}
-                  </DeatilItem>
-                ))}
-              />
-            </>
-          )}
-        </DetailContents>
-      </DetailContainer>
+            <DetailItems
+              title={`stories (${detail?.stories.available})`}
+              items={detail?.stories.items.map((item, idx) => (
+                <DeatilItem key={item.resourceURI + idx}>
+                  {item.name}
+                </DeatilItem>
+              ))}
+            />
+          </>
+        )}
+      </DetailContents>
     </Container>
   );
 }
@@ -72,6 +70,11 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  img {
+    margin: 0 auto;
+    width: 350px;
+    border-radius: 10px;
+  }
 `;
 
 const DetailTitle = styled.h2`
@@ -83,16 +86,6 @@ const DetailTitle = styled.h2`
   color: white;
   margin: 0 0 30px;
   padding: 8px 0;
-`;
-const DetailContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  img {
-    margin: 0 auto;
-    width: 350px;
-    border-radius: 10px;
-  }
 `;
 
 const ImgWrapper = styled.div`
