@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
-import DetailItems from "../components/common/DetailItems";
+import DetailItems from "../components/detail/DetailItems";
 import { Character } from "../types/types";
 import useGetDetail from "../hooks/useGetDetail";
 import styled from "styled-components";
-import CharaterImg from "../components/main/CharaterImg";
+import CharaterImg from "../components/common/CharaterImg";
 import Loader from "../components/common/Loder";
 
 export default function Detail() {
