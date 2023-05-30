@@ -30,19 +30,21 @@ CharaterImg.MainItem = ({ char }: CharaterImgProps) => (
 export default CharaterImg;
 
 const Charater = styled.div<{ bgphoto: string }>`
-  display: flex;
-  justify-content: start;
-  text-decoration: none;
   border: 1px solid gray;
-  height: 300px;
+  width: 100%;
+  height: 500px;
   overflow: hidden;
   border-radius: 10px;
   background-image: url(${props => props.bgphoto});
   background-size: cover;
-  background-position: left center;
+  background-position: left bottom;
 `;
 
 const MainCharater = styled(Charater)<{ bgphoto: string }>`
+  display: flex;
+  height: 300px;
+  justify-content: start;
+  text-decoration: none;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent),
     url(${props => props.bgphoto});
 `;

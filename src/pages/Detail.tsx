@@ -3,8 +3,8 @@ import DetailItems from "../components/detail/DetailItems";
 import { Character } from "../types/types";
 import useGetDetail from "../hooks/useGetDetail";
 import styled from "styled-components";
-import CharaterImg from "../components/common/CharaterImg";
 import Loader from "../components/common/Loder";
+import CharaterImg from "../components/common/CharaterImg";
 
 export default function Detail() {
   const { state } = useLocation() as { state: Character };
@@ -56,11 +56,6 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  img {
-    margin: 0 auto;
-    width: 350px;
-    border-radius: 10px;
-  }
 `;
 
 const DetailTitle = styled.h2`
@@ -75,8 +70,8 @@ const DetailTitle = styled.h2`
 `;
 
 const ImgWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
 `;
 const DetailContents = styled.div`
   display: flex;
