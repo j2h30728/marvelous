@@ -7,16 +7,16 @@ export interface Character {
   };
   series: {
     available: number;
-    items: Array<itmes>;
+    items: Array<Itmes>;
   };
   stories: {
     available: number;
-    items: Array<itmes>;
+    items: Array<Itmes>;
   };
-  urls: url[];
+  urls: Array<Url>;
 }
-type itmes = { name: string; resourceURI: string };
-type url = { type: string; url: string };
+export type Itmes = { name: string; resourceURI: string };
+export type Url = { type: string; url: string };
 
 export interface Response {
   code: number;

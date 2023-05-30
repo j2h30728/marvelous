@@ -32,7 +32,7 @@ export default CharaterImg;
 const Charater = styled.div<{ bgphoto: string }>`
   border: 1px solid gray;
   width: 100%;
-  height: 500px;
+  height: 600px;
   overflow: hidden;
   border-radius: 10px;
   background-image: url(${props => props.bgphoto});

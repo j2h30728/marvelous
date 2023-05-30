@@ -5,6 +5,7 @@ import useGetDetail from "../hooks/useGetDetail";
 import styled from "styled-components";
 import Loader from "../components/common/Loder";
 import CharaterImg from "../components/common/CharaterImg";
+import DetailItem from "../components/detail/DetailItem";
 
 export default function Detail() {
   const { state } = useLocation() as { state: Character };
@@ -24,25 +25,23 @@ export default function Detail() {
             <DetailItems
               title="urls"
               items={detail?.urls.map((url, idx) => (
-                <UrlItem key={url.url + idx} href={url.url}>
-                  {`${url.type} 으로 이동하기`}
-                </UrlItem>
+                <DetailItem.Url
+                  item={`${url.type} 으로 이동하기`}
+                  url={url.url}
+                  key={url.url + idx}
+                />
               ))}
             />
             <DetailItems
               title={`series (${detail?.series.available})`}
               items={detail?.series.items.map((item, idx) => (
-                <DeatilItem key={item.resourceURI + idx}>
-                  {item.name}
-                </DeatilItem>
+                <DetailItem item={item.name} key={item.resourceURI + idx} />
               ))}
             />
             <DetailItems
               title={`stories (${detail?.stories.available})`}
               items={detail?.stories.items.map((item, idx) => (
-                <DeatilItem key={item.resourceURI + idx}>
-                  {item.name}
-                </DeatilItem>
+                <DetailItem item={item.name} key={item.resourceURI + idx} />
               ))}
             />
           </>
@@ -77,28 +76,4 @@ const DetailContents = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-`;
-
-const DeatilItem = styled.div`
-  display: flex;
-  padding: 3.5px 30px;
-  font-size: 18px;
-  font-weight: 600;
-
-  :first-of-type {
-    margin-top: 20px;
-  }
-`;
-
-const UrlItem = styled.a`
-  display: flex;
-  margin: 10px;
-  padding: 3.5px 30px;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 600;
-  color: black;
-  :first-of-type {
-    margin-top: 20px;
-  }
 `;
