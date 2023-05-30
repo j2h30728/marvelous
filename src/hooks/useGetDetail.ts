@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Character } from "../types/types";
-import { ApiUrl, get } from "../api";
+import { API_BASE_URL, get } from "../api";
 import { useParams } from "react-router-dom";
 
 const useGetDetail = () => {
@@ -11,7 +11,7 @@ const useGetDetail = () => {
   useEffect(() => {
     setIsLoading(true);
     (async () => {
-      const respnse = await get(`${ApiUrl.baseUrl}/${id}`);
+      const respnse = await get(`${API_BASE_URL}/${id}`);
       if (respnse) {
         setDetail(respnse[0]);
         setIsLoading(false);

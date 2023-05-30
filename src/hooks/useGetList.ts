@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Character } from "../types/types";
-import { ApiUrl, get } from "../api";
+import { API_LIST_URL, get } from "../api";
 
 const useGetList = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,7 +9,7 @@ const useGetList = () => {
   useEffect(() => {
     setIsLoading(true);
     (async () => {
-      const result: Array<Character> | undefined = await get(ApiUrl.list);
+      const result: Array<Character> | undefined = await get(API_LIST_URL);
       if (result) {
         setList(result);
         setIsLoading(false);
