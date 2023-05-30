@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "./components/Header";
-import { Container } from "./GlobalStyle";
+import styled from "styled-components";
 
 function App() {
   const { pathname } = useLocation();
@@ -15,3 +15,8 @@ function App() {
 }
 
 export default App;
+
+export const Container = styled.div`
+  width: 100%;
+  height: 800px;
+`;
