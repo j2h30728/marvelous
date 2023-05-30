@@ -1,4 +1,4 @@
-import * as S from "./style";
+import { DetailWrapper, ItemTitle } from "./style";
 
 const DetailItems = ({
   title,
@@ -8,10 +8,10 @@ const DetailItems = ({
   items: React.ReactNode;
 }) => {
   return (
-    <S.DetailWrapper>
-      <S.ItemTitle>{title}</S.ItemTitle>
+    <DetailWrapper>
+      <ItemTitle>{title}</ItemTitle>
       {items}
-    </S.DetailWrapper>
+    </DetailWrapper>
   );
 };
 export default DetailItems;

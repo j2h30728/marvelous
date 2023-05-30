@@ -1,21 +1,28 @@
 import useGetList from "../hooks/useGetList";
 import makeImagePathname from "../utils/makeImagePathname";
 
-import * as S from "./style";
+import {
+  Container,
+  LoaderWrapper,
+  Loader,
+  Charater,
+  CharacterWrapper,
+  CharaterName,
+} from "./style";
 
 export default function Main() {
   const { isLoading, list } = useGetList();
 
   return (
-    <S.Container>
+    <Container>
       {isLoading ? (
-        <S.LoaderWrapper>
-          <S.Loader>Loading...</S.Loader>
-        </S.LoaderWrapper>
+        <LoaderWrapper>
+          <Loader>Loading...</Loader>
+        </LoaderWrapper>
       ) : (
-        <S.CharacterWrapper>
+        <CharacterWrapper>
           {list.map(char => (
-            <S.Charater
+            <Charater
               to={`/character/${char.id}`}
               key={char.id}
               state={char}
@@ -23,11 +30,11 @@ export default function Main() {
                 char.thumbnail.path,
                 char.thumbnail.extension
               )}>
-              <S.CharaterName>{char.name}</S.CharaterName>
-            </S.Charater>
+              <CharaterName>{char.name}</CharaterName>
+            </Charater>
           ))}
-        </S.CharacterWrapper>
+        </CharacterWrapper>
       )}
-    </S.Container>
+    </Container>
   );
 }

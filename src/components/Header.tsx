@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import * as S from "./style";
+import { TitleWrapper, BackBtn, Title } from "./style";
 
 const Header = ({ isGoBack }: { isGoBack: boolean }) => {
   const nav = useNavigate();
 
   return (
-    <S.TitleWrapper>
-      {isGoBack && <S.BackBtn onClick={() => nav(-1)}>&lt;</S.BackBtn>}
-      <S.Title to="/">MARVEL</S.Title>
-    </S.TitleWrapper>
+    <TitleWrapper>
+      {isGoBack && <BackBtn onClick={() => nav(-1)}>&lt;</BackBtn>}
+      <Title to="/">MARVEL</Title>
+    </TitleWrapper>
   );
 };
 export default Header;
