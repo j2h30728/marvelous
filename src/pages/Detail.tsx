@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Loader from "../components/common/Loder";
 import CharaterImg from "../components/common/CharaterImg";
 import DetailItem from "../components/detail/DetailItem";
+import Container from "../components/common/Container";
 
 export default function Detail() {
   const { state } = useLocation() as { state: Character };
@@ -14,10 +15,10 @@ export default function Detail() {
   return (
     <Container>
       <DetailTitle>{detail?.name || state.name}</DetailTitle>
-      <ImgWrapper>
+      <Container.Image>
         <CharaterImg char={state || detail} />
-      </ImgWrapper>
-      <DetailContents>
+      </Container.Image>
+      <Container.DetailContents>
         {isLoading ? (
           <Loader.Detail>Loading...</Loader.Detail>
         ) : (
@@ -46,16 +47,10 @@ export default function Detail() {
             />
           </>
         )}
-      </DetailContents>
+      </Container.DetailContents>
     </Container>
   );
 }
-export const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`;
 
 const DetailTitle = styled.h2`
   font-size: 50px;
@@ -66,14 +61,4 @@ const DetailTitle = styled.h2`
   color: white;
   margin: 0 0 30px;
   padding: 8px 0;
-`;
-
-const ImgWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-const DetailContents = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 `;
