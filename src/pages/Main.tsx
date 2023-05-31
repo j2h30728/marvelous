@@ -1,5 +1,9 @@
-import { CharaterList } from "../components";
+import { CharaterList, Container } from "../components";
 
 export default function Main() {
-  return <CharaterList />;
+  return (
+    <Container>
+      <CharaterList />
+    </Container>
+  );
 }

@@ -1,11 +1,13 @@
 import { useLocation } from "react-router-dom";
 import { Character } from "../types/Charater";
 import useGetDetail from "../hooks/useGetDetail";
-import Loader from "../components/common/Loder";
-import CharaterImg from "../components/common/CharaterImg";
-import Container from "../components/common/Container";
-import DetailContents from "../components/detail/DetailContents";
-import { Title } from "../components";
+import {
+  CharaterImg,
+  Container,
+  DetailContents,
+  Loader,
+  Title,
+} from "../components";
 
 export default function Detail() {
   const { state } = useLocation() as { state: Character };
