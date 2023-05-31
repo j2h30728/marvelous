@@ -13,6 +13,7 @@ Container.DetailContents = ({
 }: PropsWithChildren<ContainerProps>) => (
   <DetailContentsContainer>{children}</DetailContentsContainer>
 );
+
 Container.Image = ({ children }: PropsWithChildren<ContainerProps>) => (
   <ImageContainer>{children}</ImageContainer>
 );

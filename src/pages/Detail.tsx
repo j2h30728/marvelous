@@ -1,12 +1,11 @@
 import { useLocation } from "react-router-dom";
-import DetailItems from "../components/detail/DetailItems";
 import { Character } from "../types/Charater";
 import useGetDetail from "../hooks/useGetDetail";
-import styled from "styled-components";
 import Loader from "../components/common/Loder";
 import CharaterImg from "../components/common/CharaterImg";
-import DetailItem from "../components/detail/DetailItem";
 import Container from "../components/common/Container";
+import DetailContents from "../components/detail/DetailContents";
+import { Title } from "../components";
 
 export default function Detail() {
   const { state } = useLocation() as { state: Character };
@@ -14,7 +13,7 @@ export default function Detail() {
 
   return (
     <Container>
-      <DetailTitle>{detail?.name || state.name}</DetailTitle>
+      <Title.DetailContents>{detail?.name || state.name}</Title.DetailContents>
       <Container.Image>
         <CharaterImg char={state || detail} />
       </Container.Image>
@@ -22,43 +21,9 @@ export default function Detail() {
         {isLoading ? (
           <Loader.Detail>Loading...</Loader.Detail>
         ) : (
-          <>
-            <DetailItems
-              title="urls"
-              items={detail?.urls.map((url, idx) => (
-                <DetailItem.Url
-                  item={`${url.type} 으로 이동하기`}
-                  url={url.url}
-                  key={url.url + idx}
-                />
-              ))}
-            />
-            <DetailItems
-              title={`series (${detail?.series.available})`}
-              items={detail?.series.items.map((item, idx) => (
-                <DetailItem item={item.name} key={item.resourceURI + idx} />
-              ))}
-            />
-            <DetailItems
-              title={`stories (${detail?.stories.available})`}
-              items={detail?.stories.items.map((item, idx) => (
-                <DetailItem item={item.name} key={item.resourceURI + idx} />
-              ))}
-            />
-          </>
+          <DetailContents detail={detail} />
         )}
       </Container.DetailContents>
     </Container>
   );
 }
-
-const DetailTitle = styled.h2`
-  font-size: 50px;
-  font-weight: 700;
-  text-align: center;
-  background-color: #333;
-  border-top: 1px solid white;
-  color: white;
-  margin: 0 0 30px;
-  padding: 8px 0;
-`;
