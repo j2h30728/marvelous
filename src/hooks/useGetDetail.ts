@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
-import { Character } from "../types/Charater";
-import { API_BASE_URL, get } from "../api";
+import { API_BASE_URL } from "../api";
 import { useParams } from "react-router-dom";
+import useFetch from "./useFetch";
 
 const useGetDetail = () => {
   const { id } = useParams();
-  const [isLoading, setIsLoading] = useState(false);
-  const [detail, setDetail] = useState<Character>();
-
-  useEffect(() => {
-    setIsLoading(true);
-    (async () => {
-      const respnse = await get(`${API_BASE_URL}/${id}`);
-      if (respnse) {
-        setDetail(respnse[0]);
-        setIsLoading(false);
-      }
-    })();
-  }, [id]);
-
+  const { data, isLoading } = useFetch(`${API_BASE_URL}/${id}`);
+  const detail = data[0];
   return { detail, isLoading };
 };
 

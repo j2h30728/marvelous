@@ -1,8 +1,9 @@
 import { CharaterItems, Loader } from "..";
-import useGetList from "../../hooks/useGetList";
+import { API_LIST_URL } from "../../api";
+import useFetch from "../../hooks/useFetch";
 
 const CharaterList = () => {
-  const { isLoading, list } = useGetList();
+  const { isLoading, data: list } = useFetch(API_LIST_URL);
   return isLoading ? (
     <Loader.List>Loading...</Loader.List>
   ) : (
