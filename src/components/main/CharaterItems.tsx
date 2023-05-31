@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Character } from "../types/types";
-import CharaterImg from "./common/CharaterImg";
+import { Character } from "../../types/Charater";
+import { CharaterImg } from "..";
 
 interface CharaterItemsProps {
   list: Array<Character>;

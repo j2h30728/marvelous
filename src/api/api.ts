@@ -1,4 +1,4 @@
-import { Response } from "../types/types";
+import { Response } from "../types/Charater";
 
 export const get = async (url: string) => {
   try {

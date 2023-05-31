@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import DetailItems from "../components/detail/DetailItems";
-import { Character } from "../types/types";
+import { Character } from "../types/Charater";
 import useGetDetail from "../hooks/useGetDetail";
 import styled from "styled-components";
 import Loader from "../components/common/Loder";

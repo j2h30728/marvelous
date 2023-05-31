@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Character } from "../../types/types";
+import { Character } from "../../types/Charater";
 import { Link } from "react-router-dom";
 import makeImagePathname from "../../utils/makeImagePathname";
 

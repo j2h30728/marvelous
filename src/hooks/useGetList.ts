@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Character } from "../types/types";
+import { Character } from "../types/Charater";
 import { API_LIST_URL, get } from "../api";
 
 const useGetList = () => {

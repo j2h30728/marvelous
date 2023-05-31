@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Character } from "../types/types";
+import { Character } from "../types/Charater";
 import { API_BASE_URL, get } from "../api";
 import { useParams } from "react-router-dom";
 

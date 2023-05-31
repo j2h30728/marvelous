@@ -1,6 +1,5 @@
+import { CharaterItems, Loader } from "..";
 import useGetList from "../../hooks/useGetList";
-import CharaterItems from "../CharaterItems";
-import Loader from "../common/Loder";
 
 const CharaterList = () => {
   const { isLoading, list } = useGetList();
