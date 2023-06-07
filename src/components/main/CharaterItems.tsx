@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { Character } from "../../types/charater";
+import { Character } from "../../types/character";
 import { CharaterImage } from "..";
-import makeImagePathName from "../../utils/makeImagePathName";
+import makeImagePathname from "../../utils/makeImagePathname";
 
 interface CharaterItemsProps {
   charaterList: Array<Character> | undefined;
@@ -18,7 +18,7 @@ const CharaterItems = ({ charaterList }: CharaterItemsProps) => {
           to={`/character/${character.id}`}
           state={character}>
           <CharaterImage.MainItem
-            imagePathName={makeImagePathName(
+            imagePathName={makeImagePathname(
               character.thumbnail.path,
               character.thumbnail.extension
             )}>

@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
-import { Character } from "../types/charater";
+import { Character } from "../types/character";
 import useGetCharacterDetailData from "../hooks/useGetCharacterDetailData";
 import { CharaterImage, DetailContents, Loader, Title } from "../components";
-import makeImagePathName from "../utils/makeImagePathName";
+import makeImagePathname from "../utils/makeImagePathname";
 import useHandleFetchError from "../hooks/usehandleFetchError";
 
 export default function CharacterDetail() {
@@ -27,7 +27,7 @@ export default function CharacterDetail() {
           <>
             <ImageContainer>
               <CharaterImage
-                imagePathName={makeImagePathName(
+                imagePathName={makeImagePathname(
                   characterDetailData.thumbnail.path,
                   characterDetailData.thumbnail.extension
                 )}></CharaterImage>

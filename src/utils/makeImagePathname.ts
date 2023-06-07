@@ -1,4 +1,4 @@
-const makeImagePathName = (path: string, extension: string) =>
+const makeImagePathname = (path: string, extension: string) =>
   `${path}.${extension}`;
 
-export default makeImagePathName;
+export default makeImagePathname;

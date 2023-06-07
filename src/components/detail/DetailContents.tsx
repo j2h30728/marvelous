@@ -1,5 +1,5 @@
 import { DetailItem } from "..";
-import { Character } from "../../types/charater";
+import { Character } from "../../types/character";
 import DetailItems from "./DetailItems";
 
 interface DetailContentsProps {
