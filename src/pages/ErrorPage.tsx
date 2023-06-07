@@ -1,5 +1,14 @@
+import styled from "styled-components";
+
 const ErrorPage = () => {
-  return <div>잘못된 요청입니다.</div>;
+  return <ErrorMessage>잘못된 요청입니다.</ErrorMessage>;
 };
 
 export default ErrorPage;
+
+const ErrorMessage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;

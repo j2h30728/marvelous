@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
+
 import Header from "./components/common/Header";
 
 function App() {
@@ -16,7 +17,9 @@ function App() {
 
 export default App;
 
-export const Container = styled.div`
+const Container = styled.div`
   width: 100%;
-  height: 800px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;

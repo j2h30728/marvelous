@@ -15,7 +15,7 @@ export default function Detail() {
     handleFetchError(error);
   }
   return (
-    <Container>
+    <>
       <Title.DetailContents>
         {state.name || characterDetailData?.name}
       </Title.DetailContents>
@@ -34,15 +34,9 @@ export default function Detail() {
           </>
         )}
       </DetailContentsContainer>
-    </Container>
+    </>
   );
 }
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`;
 
 const ImageContainer = styled.div`
   width: 100%;

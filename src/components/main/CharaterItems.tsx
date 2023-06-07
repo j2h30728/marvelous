@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 import { Character } from "../../types/charater";
 import { CharaterImage } from "..";
 import makeImagePathname from "../../utils/makeImagePathname";
-import { Link } from "react-router-dom";
 
 interface CharaterItemsProps {
   charaterList: Array<Character> | undefined;
