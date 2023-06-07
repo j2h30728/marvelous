@@ -1,17 +1,17 @@
 import styled from "styled-components";
-import { Character } from "../../types/Charater";
+import { Character } from "../../types/charater";
 import { CharaterImage } from "..";
 import makeImagePathname from "../../utils/makeImagePathname";
 import { Link } from "react-router-dom";
 
 interface CharaterItemsProps {
-  list: Array<Character>;
+  charaterList: Array<Character> | undefined;
 }
 
-const CharaterItems = ({ list }: CharaterItemsProps) => {
+const CharaterItems = ({ charaterList }: CharaterItemsProps) => {
   return (
     <CharactersWrapper>
-      {list.map(character => (
+      {charaterList?.map(character => (
         <CharacterWrapper
           key={character.id}
           to={`/character/${character.id}`}

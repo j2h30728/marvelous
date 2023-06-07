@@ -7,5 +7,4 @@ export { default as DetailItems } from "./detail/DetailItems";
 export { default as DetailItem } from "./detail/DetailItem";
 export { default as DetailContents } from "./detail/DetailContents";
 
-export { default as CharaterList } from "./main/CharacterList";
 export { default as CharaterItems } from "./main/CharaterItems";

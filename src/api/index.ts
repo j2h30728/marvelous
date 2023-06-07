@@ -1,4 +1,4 @@
-import { get } from "./api";
+import { apiClient } from "./apiClient";
 import { API_URL } from "./ApiUrl";
 
-export { get, API_URL };
+export { apiClient, API_URL };

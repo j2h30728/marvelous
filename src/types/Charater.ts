@@ -2,7 +2,7 @@ export interface Character {
   id: number;
   name: string;
   thumbnail: {
-    extension: "jpg";
+    extension: string;
     path: string;
   };
   series: {
@@ -17,10 +17,3 @@ export interface Character {
 }
 export type Itmes = { name: string; resourceURI: string };
 export type Url = { type: string; url: string };
-
-export interface Response {
-  code: number;
-  data: {
-    results: Array<Character>;
-  };
-}
