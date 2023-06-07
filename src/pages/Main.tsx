@@ -1,4 +1,6 @@
-import { CharaterList, Container } from "../components";
+import styled from "styled-components";
+
+import { CharaterList } from "../components";
 
 export default function Main() {
   return (
@@ -7,3 +9,10 @@ export default function Main() {
     </Container>
   );
 }
+
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;

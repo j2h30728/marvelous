@@ -1,14 +1,9 @@
 import { useLocation } from "react-router-dom";
 import { Character } from "../types/Charater";
 import useGetCharacterDetailData from "../hooks/useGetCharacterDetailData";
-import {
-  CharaterImg,
-  Container,
-  DetailContents,
-  Loader,
-  Title,
-} from "../components";
+import { CharaterImg, DetailContents, Loader, Title } from "../components";
 import makeImagePathname from "../utils/makeImagePathname";
+import styled from "styled-components";
 
 export default function Detail() {
   const { state } = useLocation() as { state: Character };
@@ -17,7 +12,7 @@ export default function Detail() {
   return (
     <Container>
       <Title.DetailContents>{detail?.name || state.name}</Title.DetailContents>
-      <Container.Image>
+      <ImageContainer>
         <CharaterImg
           imagePathname={
             makeImagePathname(
@@ -26,14 +21,36 @@ export default function Detail() {
             ) ||
             makeImagePathname(detail.thumbnail.path, detail.thumbnail.extension)
           }></CharaterImg>
-      </Container.Image>
-      <Container.DetailContents>
+      </ImageContainer>
+      <DetailContentsContainer>
         {isLoading ? (
           <Loader.Detail>Loading...</Loader.Detail>
         ) : (
           <DetailContents detail={detail} />
         )}
-      </Container.DetailContents>
+      </DetailContentsContainer>
     </Container>
   );
 }
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const ImageContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+const DetailContentsContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;

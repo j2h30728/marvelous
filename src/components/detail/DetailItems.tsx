@@ -1,4 +1,5 @@
-import { Container, Title } from "..";
+import styled from "styled-components";
+import { Title } from "..";
 
 const DetailItems = ({
   title,
@@ -8,10 +9,18 @@ const DetailItems = ({
   items: React.ReactNode;
 }) => {
   return (
-    <Container.DetailContents>
+    <DetailContentsContainer>
       <Title.DetailItemTitle>{title}</Title.DetailItemTitle>
       {items}
-    </Container.DetailContents>
+    </DetailContentsContainer>
   );
 };
 export default DetailItems;
+
+const DetailContentsContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;

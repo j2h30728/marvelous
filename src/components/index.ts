@@ -1,6 +1,5 @@
 export { default as Loader } from "./common/Loder";
 export { default as Header } from "./common/Header";
-export { default as Container } from "./common/Container";
 export { default as CharaterImg } from "./common/CharaterImg";
 export { default as Title } from "./common/Title";
 
