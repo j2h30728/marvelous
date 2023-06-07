@@ -4,26 +4,29 @@ import { Link } from "react-router-dom";
 import makeImagePathname from "../../utils/makeImagePathname";
 
 interface CharaterImgProps {
-  char: Character;
+  character: Character;
 }
 
-const CharaterImg = ({ char }: CharaterImgProps) => {
+const CharaterImg = ({ character }: CharaterImgProps) => {
   return (
     <Charater
       bgphoto={makeImagePathname(
-        char.thumbnail.path,
-        char.thumbnail.extension
+        character.thumbnail.path,
+        character.thumbnail.extension
       )}></Charater>
   );
 };
 
-CharaterImg.MainItem = ({ char }: CharaterImgProps) => (
+CharaterImg.MainItem = ({ character }: CharaterImgProps) => (
   <MainCharater
     as={Link}
-    to={`/character/${char.id}`}
-    state={char}
-    bgphoto={makeImagePathname(char.thumbnail.path, char.thumbnail.extension)}>
-    <CharaterName>{char.name}</CharaterName>
+    to={`/character/${character.id}`}
+    state={character}
+    bgphoto={makeImagePathname(
+      character.thumbnail.path,
+      character.thumbnail.extension
+    )}>
+    <CharaterName>{character.name}</CharaterName>
   </MainCharater>
 );
 

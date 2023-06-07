@@ -10,7 +10,7 @@ const CharaterItems = ({ list }: CharaterItemsProps) => {
   return (
     <CharacterWrapper>
       {list.map(char => (
-        <CharaterImg.MainItem key={char.id} char={char} />
+        <CharaterImg.MainItem key={char.id} character={char} />
       ))}
     </CharacterWrapper>
   );

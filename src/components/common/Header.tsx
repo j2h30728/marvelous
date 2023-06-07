@@ -1,12 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const Header = ({ isGoBack }: { isGoBack: boolean }) => {
+const Header = ({ isRootPath }: { isRootPath: boolean }) => {
   const nav = useNavigate();
 
   return (
     <TitleWrapper>
-      {isGoBack && <BackBtn onClick={() => nav(-1)}>&lt;</BackBtn>}
+      {isRootPath && <BackBtn onClick={() => nav(-1)}>&lt;</BackBtn>}
       <Title to="/">MARVEL</Title>
     </TitleWrapper>
   );

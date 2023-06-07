@@ -4,11 +4,11 @@ import Header from "./components/common/Header";
 
 function App() {
   const { pathname } = useLocation();
-  const isGoBack = pathname !== "/";
+  const isRootPath = pathname !== "/";
 
   return (
     <Container>
-      <Header isGoBack={isGoBack} />
+      <Header isRootPath={isRootPath} />
       <Outlet />
     </Container>
   );
