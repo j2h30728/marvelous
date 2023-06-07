@@ -1,19 +1,19 @@
 import styled from "styled-components";
 
-interface CharaterImgProps {
+interface CharaterImageProps {
   imagePathname: string;
   children?: React.ReactNode;
 }
 
-const CharaterImg = ({ imagePathname, children }: CharaterImgProps) => {
+const CharaterImage = ({ imagePathname, children }: CharaterImageProps) => {
   return <Charater imagePathname={imagePathname}>{children}</Charater>;
 };
 
-CharaterImg.MainItem = ({ imagePathname, children }: CharaterImgProps) => (
+CharaterImage.MainItem = ({ imagePathname, children }: CharaterImageProps) => (
   <MainCharater imagePathname={imagePathname}>{children}</MainCharater>
 );
 
-export default CharaterImg;
+export default CharaterImage;
 
 const Charater = styled.div<{ imagePathname: string }>`
   border: 1px solid gray;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Character } from "../../types/Charater";
-import { CharaterImg } from "..";
+import { CharaterImage } from "..";
 import makeImagePathname from "../../utils/makeImagePathname";
 import { Link } from "react-router-dom";
 
@@ -16,13 +16,13 @@ const CharaterItems = ({ list }: CharaterItemsProps) => {
           key={character.id}
           to={`/character/${character.id}`}
           state={character}>
-          <CharaterImg.MainItem
+          <CharaterImage.MainItem
             imagePathname={makeImagePathname(
               character.thumbnail.path,
               character.thumbnail.extension
             )}>
             <CharaterName>{character.name}</CharaterName>
-          </CharaterImg.MainItem>
+          </CharaterImage.MainItem>
         </CharacterWrapper>
       ))}
     </CharactersWrapper>

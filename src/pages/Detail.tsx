@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { Character } from "../types/Charater";
 import useGetCharacterDetailData from "../hooks/useGetCharacterDetailData";
-import { CharaterImg, DetailContents, Loader, Title } from "../components";
+import { CharaterImage, DetailContents, Loader, Title } from "../components";
 import makeImagePathname from "../utils/makeImagePathname";
 import styled from "styled-components";
 
@@ -13,14 +13,14 @@ export default function Detail() {
     <Container>
       <Title.DetailContents>{detail?.name || state.name}</Title.DetailContents>
       <ImageContainer>
-        <CharaterImg
+        <CharaterImage
           imagePathname={
             makeImagePathname(
               state.thumbnail.path,
               state.thumbnail.extension
             ) ||
             makeImagePathname(detail.thumbnail.path, detail.thumbnail.extension)
-          }></CharaterImg>
+          }></CharaterImage>
       </ImageContainer>
       <DetailContentsContainer>
         {isLoading ? (
