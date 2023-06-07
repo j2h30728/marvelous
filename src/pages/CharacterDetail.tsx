@@ -4,10 +4,10 @@ import styled from "styled-components";
 import { Character } from "../types/charater";
 import useGetCharacterDetailData from "../hooks/useGetCharacterDetailData";
 import { CharaterImage, DetailContents, Loader, Title } from "../components";
-import makeImagePathname from "../utils/makeImagePathname";
+import makeImagePathName from "../utils/makeImagePathName";
 import useHandleFetchError from "../hooks/usehandleFetchError";
 
-export default function Detail() {
+export default function CharacterDetail() {
   const { state } = useLocation() as { state: Character };
   const handleFetchError = useHandleFetchError();
   const { isLoading, characterDetailData, error } = useGetCharacterDetailData();
@@ -20,12 +20,14 @@ export default function Detail() {
         {state.name || characterDetailData?.name}
       </Title.DetailContents>
       <DetailContentsContainer>
-        {isLoading && <Loader.Detail>Loading...</Loader.Detail>}
+        {isLoading && (
+          <Loader.CharacterDetail>Loading...</Loader.CharacterDetail>
+        )}
         {characterDetailData && (
           <>
             <ImageContainer>
               <CharaterImage
-                imagePathname={makeImagePathname(
+                imagePathName={makeImagePathName(
                   characterDetailData.thumbnail.path,
                   characterDetailData.thumbnail.extension
                 )}></CharaterImage>

@@ -2,11 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = ({ isRootPath }: { isRootPath: boolean }) => {
-  const nav = useNavigate();
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   return (
     <TitleWrapper>
-      {isRootPath && <BackBtn onClick={() => nav(-1)}>&lt;</BackBtn>}
+      {isRootPath && <BackBotton onClick={handleGoBack}>&lt;</BackBotton>}
       <Title to="/">MARVEL</Title>
     </TitleWrapper>
   );
@@ -35,7 +38,7 @@ export const Title = styled(Link)`
   letter-spacing: -2px;
 `;
 
-export const BackBtn = styled.div`
+export const BackBotton = styled.div`
   color: white;
   font-size: 40px;
   position: relative;

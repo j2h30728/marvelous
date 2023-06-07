@@ -11,7 +11,7 @@ export default function Main() {
   return (
     <>
       {isLoading ? (
-        <Loader.List>Loading...</Loader.List>
+        <Loader.CharaterList>Loading...</Loader.CharaterList>
       ) : (
         <CharaterItems charaterList={charaterListData} />
       )}

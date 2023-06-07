@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Character } from "../../types/charater";
 import { CharaterImage } from "..";
-import makeImagePathname from "../../utils/makeImagePathname";
+import makeImagePathName from "../../utils/makeImagePathName";
 
 interface CharaterItemsProps {
   charaterList: Array<Character> | undefined;
@@ -18,7 +18,7 @@ const CharaterItems = ({ charaterList }: CharaterItemsProps) => {
           to={`/character/${character.id}`}
           state={character}>
           <CharaterImage.MainItem
-            imagePathname={makeImagePathname(
+            imagePathName={makeImagePathName(
               character.thumbnail.path,
               character.thumbnail.extension
             )}>
