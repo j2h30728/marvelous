@@ -5,7 +5,7 @@ import Header from "./components/common/Header";
 
 function App() {
   const { pathname } = useLocation();
-  const isRootPath = pathname !== "/";
+  const isRootPath = pathname === "/";
 
   return (
     <Container>

@@ -9,7 +9,7 @@ const Header = ({ isRootPath }: { isRootPath: boolean }) => {
 
   return (
     <TitleWrapper>
-      {isRootPath && <BackBotton onClick={handleGoBack}>&lt;</BackBotton>}
+      {!isRootPath && <BackBotton onClick={handleGoBack}>&lt;</BackBotton>}
       <Title to="/">MARVEL</Title>
     </TitleWrapper>
   );
