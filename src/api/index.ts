@@ -1,4 +1,4 @@
 import { get } from "./api";
-import { API_BASE_URL, API_LIST_URL } from "./ApiUrl";
+import { API_URL } from "./ApiUrl";
 
-export { get, API_BASE_URL, API_LIST_URL };
+export { get, API_URL };
