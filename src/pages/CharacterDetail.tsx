@@ -8,7 +8,7 @@ import makeImagePathName from "../utils/makeImagePathName";
 import useHandleFetchError from "../hooks/usehandleFetchError";
 
 export default function CharacterDetail() {
-  const { state } = useLocation() as { state: Character };
+  const { state } = useLocation() as { state?: Character };
   const handleFetchError = useHandleFetchError();
   const { isLoading, characterDetailData, error } = useGetCharacterDetailData();
   if (error) {
@@ -17,7 +17,7 @@ export default function CharacterDetail() {
   return (
     <>
       <Title.DetailContents>
-        {state.name || characterDetailData?.name}
+        {state?.name || characterDetailData?.name}
       </Title.DetailContents>
       <DetailContentsContainer>
         {isLoading && (
