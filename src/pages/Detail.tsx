@@ -8,6 +8,7 @@ import {
   Loader,
   Title,
 } from "../components";
+import makeImagePathname from "../utils/makeImagePathname";
 
 export default function Detail() {
   const { state } = useLocation() as { state: Character };
@@ -17,7 +18,14 @@ export default function Detail() {
     <Container>
       <Title.DetailContents>{detail?.name || state.name}</Title.DetailContents>
       <Container.Image>
-        <CharaterImg character={state || detail} />
+        <CharaterImg
+          imagePathname={
+            makeImagePathname(
+              state.thumbnail.path,
+              state.thumbnail.extension
+            ) ||
+            makeImagePathname(detail.thumbnail.path, detail.thumbnail.extension)
+          }></CharaterImg>
       </Container.Image>
       <Container.DetailContents>
         {isLoading ? (
