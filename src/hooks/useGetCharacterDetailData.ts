@@ -6,7 +6,7 @@ import { Character } from "../types/character";
 const useGetCharacterDetailData = () => {
   const { id } = useParams();
   const { data, isLoading, error } = useFetch<Array<Character>>(
-    `${API_URL.FETCH_CHARATERR}${id}`
+    `${API_URL.FETCH_CHARACTER}${id}`
   );
   const characterDetailData = data?.[0];
   return { characterDetailData, isLoading, error };

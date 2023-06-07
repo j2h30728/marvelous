@@ -1,3 +1,4 @@
+import { PropsWithChildren } from "react";
 import styled from "styled-components";
 
 interface CharaterImageProps {
@@ -5,11 +6,17 @@ interface CharaterImageProps {
   children?: React.ReactNode;
 }
 
-const CharaterImage = ({ imagePathName, children }: CharaterImageProps) => {
+const CharaterImage = ({
+  imagePathName,
+  children,
+}: PropsWithChildren<CharaterImageProps>) => {
   return <Charater imagePathName={imagePathName}>{children}</Charater>;
 };
 
-CharaterImage.MainItem = ({ imagePathName, children }: CharaterImageProps) => (
+CharaterImage.MainItem = ({
+  imagePathName,
+  children,
+}: PropsWithChildren<CharaterImageProps>) => (
   <MainCharater imagePathName={imagePathName}>{children}</MainCharater>
 );
 

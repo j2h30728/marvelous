@@ -3,5 +3,5 @@ const BASE_URL =
 
 export const API_URL = {
   FETCH_CHARACTER_LIST: `${BASE_URL}?limit=50&orderBy=modified&series=24229,1058,2023"`,
-  FETCH_CHARATERR: `${BASE_URL}/`,
+  FETCH_CHARACTER: `${BASE_URL}/`,
 } as const;
