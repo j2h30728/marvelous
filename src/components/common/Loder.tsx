@@ -9,10 +9,10 @@ const Loader = ({ children }: PropsWithChildren<LoaderProps>) => (
   <BaseLoader>{children}</BaseLoader>
 );
 
-Loader.List = ({ children }: PropsWithChildren<LoaderProps>) => (
+Loader.CharaterList = ({ children }: PropsWithChildren<LoaderProps>) => (
   <ListLoader>{children}</ListLoader>
 );
-Loader.Detail = ({ children }: PropsWithChildren<LoaderProps>) => (
+Loader.CharacterDetail = ({ children }: PropsWithChildren<LoaderProps>) => (
   <DetailLoader>{children}</DetailLoader>
 );
 

@@ -1,33 +1,33 @@
 import { DetailItem } from "..";
-import { Character } from "../../types/Charater";
+import { Character } from "../../types/character";
 import DetailItems from "./DetailItems";
 
 interface DetailContentsProps {
-  detail: Character | undefined;
+  characterDetailData: Character | undefined;
 }
 
-const DetailContents = ({ detail }: DetailContentsProps) => (
+const DetailContents = ({ characterDetailData }: DetailContentsProps) => (
   <>
     <DetailItems
       title="urls"
-      items={detail?.urls.map((url, idx) => (
+      items={characterDetailData?.urls.map((detailDataUrl, index) => (
         <DetailItem.Url
-          item={`${url.type} 으로 이동하기`}
-          url={url.url}
-          key={url.url + idx}
+          item={`${detailDataUrl.type} 으로 이동하기`}
+          url={detailDataUrl.url}
+          key={detailDataUrl.url + index}
         />
       ))}
     />
     <DetailItems
-      title={`series (${detail?.series.available})`}
-      items={detail?.series.items.map((item, idx) => (
-        <DetailItem item={item.name} key={item.resourceURI + idx} />
+      title={`series (${characterDetailData?.series.available})`}
+      items={characterDetailData?.series.items.map((item, index) => (
+        <DetailItem item={item.name} key={item.resourceURI + index} />
       ))}
     />
     <DetailItems
-      title={`stories (${detail?.stories.available})`}
-      items={detail?.stories.items.map((item, idx) => (
-        <DetailItem item={item.name} key={item.resourceURI + idx} />
+      title={`stories (${characterDetailData?.stories.available})`}
+      items={characterDetailData?.stories.items.map((item, index) => (
+        <DetailItem item={item.name} key={item.resourceURI + index} />
       ))}
     />
   </>

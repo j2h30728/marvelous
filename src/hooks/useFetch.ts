@@ -1,23 +1,29 @@
 import { useEffect, useState } from "react";
-import { get } from "../api";
-import { Character } from "../types/Charater";
 
-const useFetch = (url: string) => {
+import { apiClient } from "../api";
+import { Response } from "../types/common";
+
+const useFetch = <T>(url: string, option?: RequestInit) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<Array<Character>>([]);
-
+  const [error, setError] = useState<Error | null>(null);
+  const [data, setData] = useState<T | undefined>();
   useEffect(() => {
     setIsLoading(true);
     (async () => {
-      const result = await get(url);
-      if (result) {
-        setData(result);
+      try {
+        const responseData = await apiClient<Response<T>>(url, option);
+        if (responseData) {
+          setData(responseData.data.results);
+        }
+      } catch (error) {
+        setError(error as Error);
+      } finally {
         setIsLoading(false);
       }
     })();
-  }, [url]);
+  }, [url, option]);
 
-  return { data, isLoading };
+  return { data, isLoading, error };
 };
 
 export default useFetch;

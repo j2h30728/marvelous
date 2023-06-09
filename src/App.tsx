@@ -1,14 +1,15 @@
 import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
+
 import Header from "./components/common/Header";
 
 function App() {
   const { pathname } = useLocation();
-  const isGoBack = pathname !== "/";
+  const isRootPath = pathname === "/";
 
   return (
     <Container>
-      <Header isGoBack={isGoBack} />
+      <Header isRootPath={isRootPath} />
       <Outlet />
     </Container>
   );
@@ -16,7 +17,9 @@ function App() {
 
 export default App;
 
-export const Container = styled.div`
+const Container = styled.div`
   width: 100%;
-  height: 800px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
